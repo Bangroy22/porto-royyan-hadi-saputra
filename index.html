@@ -729,11 +729,11 @@ section[id]{scroll-margin-top:96px}
   .cert-grid .cert-card{margin-top:16px}
 }
 
-/* --- kontak desktop: daftar kiri, dossier kanan --- */
+/* --- kontak desktop: daftar kiri, dossier kanan, sejajar penuh --- */
 @media(min-width:1024px){
-  .contact-cols{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;margin-top:32px}
-  .contact-cols .c-list{margin-top:0}
-  .contact-cols .cv-dossier{margin-top:0}
+  .contact-cols{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:stretch;margin-top:32px}
+  .contact-cols .c-list{margin-top:0;display:flex;flex-direction:column;justify-content:space-between}
+  .contact-cols .cv-dossier{margin-top:0;display:flex;flex-direction:column;justify-content:center}
 }
 
 /* --- footer: tautan sejajar di layar lebar --- */
