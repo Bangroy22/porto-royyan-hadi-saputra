@@ -31,11 +31,15 @@ body{font-family:var(--body);background:var(--page);color:var(--ink);line-height
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
 
-/* Cangkang: 390px di HP, kolom ramping di tengah layar desktop */
+/* Cangkang adaptif: ramping di HP, melebar di tablet & desktop */
 .shell{max-width:430px;margin:0 auto;background:var(--paper);position:relative;min-height:100vh;overflow:hidden}
 @media(min-width:768px){
-  body{padding:36px 0;background:radial-gradient(circle at 20% 15%,transparent 0 220px,rgba(0,0,0,.07) 221px 222px,transparent 223px),radial-gradient(circle at 80% 70%,transparent 0 300px,rgba(0,0,0,.07) 301px 302px,transparent 303px),#d8d8d8}
-  .shell{border:1px solid #c6c6c6;box-shadow:0 30px 60px rgba(0,0,0,.16)}
+  body{padding:32px 20px;background:radial-gradient(circle at 20% 15%,transparent 0 220px,rgba(0,0,0,.07) 221px 222px,transparent 223px),radial-gradient(circle at 80% 70%,transparent 0 300px,rgba(0,0,0,.07) 301px 302px,transparent 303px),#d8d8d8}
+  .shell{max-width:780px;border:1px solid #c6c6c6;box-shadow:0 30px 60px rgba(0,0,0,.16);border-radius:12px}
+}
+@media(min-width:1100px){
+  body{padding:44px 32px}
+  .shell{max-width:1120px}
 }
 
 /* ================= TOPBAR ================= */
@@ -113,16 +117,16 @@ a{color:inherit;text-decoration:none}
   <!-- ============ TOPBAR ============ -->
   <header class="topbar">
     <div class="brand"><b>RHS<i>.</i></b><span>DATA ANALYST</span></div>
+    <nav class="menu" id="menu" aria-label="Navigasi">
+      <a href="#beranda"><em>01</em>HOME</a>
+      <a href="#perjalanan"><em>02</em>JOURNEY</a>
+      <a href="#pendidikan"><em>03</em>EDUCATION</a>
+      <a href="#proyek"><em>04</em>PROJECTS</a>
+      <a href="#sertifikat"><em>05</em>CERTIFICATES</a>
+      <a href="#kontak"><em>06</em>CONTACT</a>
+    </nav>
     <button class="burger" id="burger" aria-label="Buka menu"><i></i><i></i><i></i></button>
   </header>
-  <nav class="menu" id="menu" aria-label="Navigasi">
-    <a href="#beranda"><em>01</em>HOME</a>
-    <a href="#perjalanan"><em>02</em>JOURNEY</a>
-    <a href="#pendidikan"><em>03</em>EDUCATION</a>
-    <a href="#proyek"><em>04</em>PROJECTS</a>
-    <a href="#sertifikat"><em>05</em>CERTIFICATES</a>
-    <a href="#kontak"><em>06</em>CONTACT</a>
-  </nav>
 
   <main>
     <!-- ============ HERO ============ -->
@@ -407,79 +411,81 @@ a{color:inherit;text-decoration:none}
         <h2 class="h-display" data-kinetic>RECENT<br>PROJECTS<span class="dot">.</span></h2>
       </div>
 
-      <article class="proj-card reveal">
-        <div class="proj-top"><span class="proj-num">01</span><span class="proj-year">2026<span class="proj-live"><i></i>LIVE</span></span></div>
-        <h3>DompetKos — Expense Tracker + AI Insight</h3>
-        <p>A web-based expense tracker for boarding-house students with automatic AI insights. Next.js + Supabase + Gemini.</p>
-        <div class="proj-tags"><span>NEXT.JS</span><span>SUPABASE</span><span>GEMINI AI</span><span>PWA</span></div>
-        <button class="detail-btn" aria-expanded="false"><span>VIEW DETAIL</span><span class="plus">+</span></button>
-        <div class="proj-detail"><div class="proj-detail-inner">
-          <ul>
-            <li>Automatic daily budget dashboard (remaining budget ÷ remaining days).</li>
-            <li>Quick expense logging, per-category budgets, history + filters, monthly recap + PDF export.</li>
-            <li>Monthly AI Insight (Gemini) with a local-analysis fallback.</li>
-            <li>Email/Google login, installable PWA, automatic deploys via Vercel.</li>
-          </ul>
-          <div class="proj-links">
-            <a class="link-btn solid" href="https://dompetkos-s.vercel.app" target="_blank" rel="noopener">LIVE DEMO ↗</a>
-          </div>
-        </div></div>
-      </article>
+      <div class="proj-grid">
+        <article class="proj-card reveal">
+          <div class="proj-top"><span class="proj-num">01</span><span class="proj-year">2026<span class="proj-live"><i></i>LIVE</span></span></div>
+          <h3>DompetKos — Expense Tracker + AI Insight</h3>
+          <p>A web-based expense tracker for boarding-house students with automatic AI insights. Next.js + Supabase + Gemini.</p>
+          <div class="proj-tags"><span>NEXT.JS</span><span>SUPABASE</span><span>GEMINI AI</span><span>PWA</span></div>
+          <button class="detail-btn" aria-expanded="false"><span>VIEW DETAIL</span><span class="plus">+</span></button>
+          <div class="proj-detail"><div class="proj-detail-inner">
+            <ul>
+              <li>Automatic daily budget dashboard (remaining budget ÷ remaining days).</li>
+              <li>Quick expense logging, per-category budgets, history + filters, monthly recap + PDF export.</li>
+              <li>Monthly AI Insight (Gemini) with a local-analysis fallback.</li>
+              <li>Email/Google login, installable PWA, automatic deploys via Vercel.</li>
+            </ul>
+            <div class="proj-links">
+              <a class="link-btn solid" href="https://dompetkos-s.vercel.app" target="_blank" rel="noopener">LIVE DEMO ↗</a>
+            </div>
+          </div></div>
+        </article>
 
-      <article class="proj-card reveal">
-        <div class="proj-top"><span class="proj-num">02</span><span class="proj-year">2026</span></div>
-        <h3>Sapawarga Review Sentiment Analysis</h3>
-        <p>Sentiment classification of 3,270 Sapawarga app reviews on Google Play Store using IndoBERT and XGBoost.</p>
-        <div class="proj-tags"><span>INDOBERT</span><span>XGBOOST</span><span>PYTHON</span><span>NLP</span></div>
-        <button class="detail-btn" aria-expanded="false"><span>VIEW DETAIL</span><span class="plus">+</span></button>
-        <div class="proj-detail"><div class="proj-detail-inner">
-          <ul>
-            <li>Dataset: 3,270 user reviews of the Sapawarga app (Jabar Super Apps).</li>
-            <li>Preprocessing: data cleaning, normalization, tokenization, stopword removal.</li>
-            <li>Evaluated with Accuracy, Precision, Recall, and F1-Score.</li>
-            <li>Best model accuracy: <b>95.21%</b> (undergraduate thesis, 2026).</li>
-          </ul>
-          <div class="proj-links">
-            <a class="link-btn solid" href="https://colab.research.google.com/drive/11xllTu0iU7llssg1ZRNT8oOaqtWfnDsC?usp=sharing" target="_blank" rel="noopener">OPEN NOTEBOOK ↗</a>
-          </div>
-        </div></div>
-      </article>
+        <article class="proj-card reveal">
+          <div class="proj-top"><span class="proj-num">02</span><span class="proj-year">2026</span></div>
+          <h3>Sapawarga Review Sentiment Analysis</h3>
+          <p>Sentiment classification of 3,270 Sapawarga app reviews on Google Play Store using IndoBERT and XGBoost.</p>
+          <div class="proj-tags"><span>INDOBERT</span><span>XGBOOST</span><span>PYTHON</span><span>NLP</span></div>
+          <button class="detail-btn" aria-expanded="false"><span>VIEW DETAIL</span><span class="plus">+</span></button>
+          <div class="proj-detail"><div class="proj-detail-inner">
+            <ul>
+              <li>Dataset: 3,270 user reviews of the Sapawarga app (Jabar Super Apps).</li>
+              <li>Preprocessing: data cleaning, normalization, tokenization, stopword removal.</li>
+              <li>Evaluated with Accuracy, Precision, Recall, and F1-Score.</li>
+              <li>Best model accuracy: <b>95.21%</b> (undergraduate thesis, 2026).</li>
+            </ul>
+            <div class="proj-links">
+              <a class="link-btn solid" href="https://colab.research.google.com/drive/11xllTu0iU7llssg1ZRNT8oOaqtWfnDsC?usp=sharing" target="_blank" rel="noopener">OPEN NOTEBOOK ↗</a>
+            </div>
+          </div></div>
+        </article>
 
-      <article class="proj-card reveal">
-        <div class="proj-top"><span class="proj-num">03</span><span class="proj-year">2024</span></div>
-        <h3>Manpower Office Website Redesign</h3>
-        <p>Redesigned the Bandung City Manpower Office profile website — more modern, informative, and user-friendly.</p>
-        <div class="proj-tags"><span>FIGMA</span><span>UI/UX</span><span>WIREFRAME</span></div>
-        <button class="detail-btn" aria-expanded="false"><span>VIEW DETAIL</span><span class="plus">+</span></button>
-        <div class="proj-detail"><div class="proj-detail-inner">
-          <ul>
-            <li>Redesigned the interface of a government office profile website.</li>
-            <li>Page structure &amp; navigation: profile, news, gallery, complaints, PPID.</li>
-            <li>Interactive wireframes and prototypes built in Figma.</li>
-          </ul>
-          <div class="proj-links">
-            <a class="link-btn solid" href="https://www.figma.com/proto/tg7KhyAVtStsjwYGgdHPTz/Aplikasi_Web?node-id=0-1&t=M9AdsZtQKQZjiKUF-1" target="_blank" rel="noopener">OPEN PROTOTYPE ↗</a>
-          </div>
-        </div></div>
-      </article>
+        <article class="proj-card reveal">
+          <div class="proj-top"><span class="proj-num">03</span><span class="proj-year">2024</span></div>
+          <h3>Manpower Office Website Redesign</h3>
+          <p>Redesigned the Bandung City Manpower Office profile website — more modern, informative, and user-friendly.</p>
+          <div class="proj-tags"><span>FIGMA</span><span>UI/UX</span><span>WIREFRAME</span></div>
+          <button class="detail-btn" aria-expanded="false"><span>VIEW DETAIL</span><span class="plus">+</span></button>
+          <div class="proj-detail"><div class="proj-detail-inner">
+            <ul>
+              <li>Redesigned the interface of a government office profile website.</li>
+              <li>Page structure &amp; navigation: profile, news, gallery, complaints, PPID.</li>
+              <li>Interactive wireframes and prototypes built in Figma.</li>
+            </ul>
+            <div class="proj-links">
+              <a class="link-btn solid" href="https://www.figma.com/proto/tg7KhyAVtStsjwYGgdHPTz/Aplikasi_Web?node-id=0-1&t=M9AdsZtQKQZjiKUF-1" target="_blank" rel="noopener">OPEN PROTOTYPE ↗</a>
+            </div>
+          </div></div>
+        </article>
 
-      <article class="proj-card reveal">
-        <div class="proj-top"><span class="proj-num">04</span><span class="proj-year">2023</span></div>
-        <h3>Activity Information Bulletin</h3>
-        <p>Designed and compiled bulletin content as an organizational information medium.</p>
-        <div class="proj-tags"><span>CONTENT</span><span>EDITORIAL</span><span>LAYOUT</span></div>
-        <button class="detail-btn" aria-expanded="false"><span>VIEW DETAIL</span><span class="plus">+</span></button>
-        <div class="proj-detail"><div class="proj-detail-inner">
-          <ul>
-            <li>Compiled bulletin content with an informative structure and layout.</li>
-            <li>Collected, processed, and presented information from various sources.</li>
-            <li>Team coordination through to publication.</li>
-          </ul>
-          <div class="proj-links">
-            <a class="link-btn solid" href="https://online.fliphtml5.com/BuletinIndramayu/lspv/" target="_blank" rel="noopener">READ BULETIN ↗</a>
-          </div>
-        </div></div>
-      </article>
+        <article class="proj-card reveal">
+          <div class="proj-top"><span class="proj-num">04</span><span class="proj-year">2023</span></div>
+          <h3>Activity Information Bulletin</h3>
+          <p>Designed and compiled bulletin content as an organizational information medium.</p>
+          <div class="proj-tags"><span>CONTENT</span><span>EDITORIAL</span><span>LAYOUT</span></div>
+          <button class="detail-btn" aria-expanded="false"><span>VIEW DETAIL</span><span class="plus">+</span></button>
+          <div class="proj-detail"><div class="proj-detail-inner">
+            <ul>
+              <li>Compiled bulletin content with an informative structure and layout.</li>
+              <li>Collected, processed, and presented information from various sources.</li>
+              <li>Team coordination through to publication.</li>
+            </ul>
+            <div class="proj-links">
+              <a class="link-btn solid" href="https://online.fliphtml5.com/BuletinIndramayu/lspv/" target="_blank" rel="noopener">READ BULETIN ↗</a>
+            </div>
+          </div></div>
+        </article>
+      </div>
 
     </section>
 
@@ -564,25 +570,27 @@ a{color:inherit;text-decoration:none}
         <h2 class="h-display" data-kinetic style="color:var(--acc)">THE CERTIFICATES.</h2>
         <p class="lead" style="margin-top:16px;font-size:12.5px;color:#bdbdbd;font-family:var(--mono);line-height:1.8">CERTIFICATIONS VALIDATING TECHNICAL SKILLS AND A COMMITMENT TO CONTINUOUS LEARNING.</p>
       </div>
-      <div class="cert-card reveal">
-        <p class="issuer">COGNITIVE CLASS — IBM</p>
-        <h3>Python 101 for Data Science</h3>
-        <span class="cert-badge">✓ CERTIFIED</span>
-      </div>
-      <div class="cert-card reveal">
-        <p class="issuer">COGNITIVE CLASS — IBM</p>
-        <h3>SQL and Relational Databases 101</h3>
-        <span class="cert-badge">✓ CERTIFIED</span>
-      </div>
-      <div class="cert-card reveal">
-        <p class="issuer">INTERNSHIP PROGRAM</p>
-        <h3>Internship Certificate — Bandung City Manpower Office</h3>
-        <span class="cert-badge">✓ CERTIFIED</span>
-      </div>
-      <div class="cert-card reveal">
-        <p class="issuer">OCCUPATIONAL SAFETY &amp; HEALTH</p>
-        <h3>Occupational Safety and Health (K3) Bootcamp</h3>
-        <span class="cert-badge">✓ CERTIFIED</span>
+      <div class="cert-grid">
+        <div class="cert-card reveal">
+          <p class="issuer">COGNITIVE CLASS — IBM</p>
+          <h3>Python 101 for Data Science</h3>
+          <span class="cert-badge">✓ CERTIFIED</span>
+        </div>
+        <div class="cert-card reveal">
+          <p class="issuer">COGNITIVE CLASS — IBM</p>
+          <h3>SQL and Relational Databases 101</h3>
+          <span class="cert-badge">✓ CERTIFIED</span>
+        </div>
+        <div class="cert-card reveal">
+          <p class="issuer">INTERNSHIP PROGRAM</p>
+          <h3>Internship Certificate — Bandung City Manpower Office</h3>
+          <span class="cert-badge">✓ CERTIFIED</span>
+        </div>
+        <div class="cert-card reveal">
+          <p class="issuer">OCCUPATIONAL SAFETY &amp; HEALTH</p>
+          <h3>Occupational Safety and Health (K3) Bootcamp</h3>
+          <span class="cert-badge">✓ CERTIFIED</span>
+        </div>
       </div>
     </section>
 
@@ -593,38 +601,41 @@ a{color:inherit;text-decoration:none}
         <h2 class="h-display" data-kinetic>LET'S BUILD<br>SOMETHING<span class="dot">.</span></h2>
         <p class="sub">HAVE DATA THAT NEEDS PROCESSING, OR JUST WANT TO CONNECT? I WOULD LOVE TO HEAR FROM YOU.</p>
       </div>
-      <div class="c-list reveal">
-        <a class="c-item" href="mailto:royyanhadis@gmail.com">
-          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,6 12,13 2,6"/></svg></span>
-          <span class="tx"><b>EMAIL</b><small>royyanhadis@gmail.com</small></span>
-          <span class="go">→</span>
-        </a>
-        <a class="c-item" href="https://wa.me/6281999178003" target="_blank" rel="noopener">
-          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
-          <span class="tx"><b>WHATSAPP</b><small>+62 819-9917-8003</small></span>
-          <span class="go">→</span>
-        </a>
-        <a class="c-item" href="https://www.linkedin.com/in/royyan-hadi-saputra-075b24412" target="_blank" rel="noopener">
-          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V8h4"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span>
-          <span class="tx"><b>LINKEDIN</b><small>linkedin.com/in/royyan-hadi-saputra-075b24412</small></span>
-          <span class="go">→</span>
-        </a>
-      </div>
-      <div class="cv-dossier reveal">
-        <div class="dossier-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      <div class="contact-cols">
+        <div class="c-list reveal">
+          <a class="c-item" href="mailto:royyanhadis@gmail.com">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,6 12,13 2,6"/></svg></span>
+            <span class="tx"><b>EMAIL</b><small>royyanhadis@gmail.com</small></span>
+            <span class="go">→</span>
+          </a>
+          <a class="c-item" href="https://wa.me/6281999178003" target="_blank" rel="noopener">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+            <span class="tx"><b>WHATSAPP</b><small>+62 819-9917-8003</small></span>
+            <span class="go">→</span>
+          </a>
+          <a class="c-item" href="https://www.linkedin.com/in/royyan-hadi-saputra-075b24412" target="_blank" rel="noopener">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V8h4"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span>
+            <span class="tx"><b>LINKEDIN</b><small>linkedin.com/in/royyan-hadi-saputra-075b24412</small></span>
+            <span class="go">→</span>
+          </a>
         </div>
-        <p class="dossier-eyebrow">OFFICIAL PORTFOLIO DOSSIER</p>
-        <h3>CV &ndash; Royyan Hadi Saputra</h3>
-        <p class="dossier-sub">Latest CV &middot; ATS Friendly</p>
-        <a class="dossier-btn" href="CV-RoyyanHadiSaputra.pdf" download>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Curriculum Vitae (PDF)
-        </a>
-        <a class="dossier-ghost" href="https://www.linkedin.com/in/royyan-hadi-saputra-075b24412" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-          View LinkedIn Profile
-        </a>
+        <div class="cv-dossier reveal">
+          <div class="dossier-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <p class="dossier-eyebrow">OFFICIAL PORTFOLIO DOSSIER</p>
+          <h3>CV &ndash; Royyan Hadi Saputra</h3>
+          <p class="dossier-sub">Latest CV &middot; ATS Friendly</p>
+          <a class="dossier-btn" href="CV-RoyyanHadiSaputra.pdf" download>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Curriculum Vitae (PDF)
+          </a>
+          <a class="dossier-ghost" href="https://www.linkedin.com/in/royyan-hadi-saputra-075b24412" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            View LinkedIn Profile
+          </a>
+        </div>
+
       </div>
     </section>
 
@@ -645,6 +656,91 @@ a{color:inherit;text-decoration:none}
   </main>
 </div>
 
+<style>
+/* ================= RESPONSIVE ================= */
+/* jangkar section: tidak tertutup topbar sticky saat lompat via menu */
+section[id]{scroll-margin-top:96px}
+
+/* --- navigasi: burger di HP, tautan inline di desktop --- */
+.topbar{flex-wrap:wrap}
+.menu{flex:0 0 100%;margin:0;transition:max-height .4s ease,margin .25s ease}
+.menu.open{margin:14px -22px -16px}
+@media(min-width:900px){
+  .burger{display:none}
+  .topbar{padding:16px 32px}
+  .menu{flex:0 0 auto;margin:0;max-height:none;overflow:visible;background:transparent;color:var(--ink);display:flex;align-items:center;gap:2px}
+  .menu a{opacity:1;transform:none;border-bottom:0;padding:10px 13px;font-size:11px;letter-spacing:.16em;color:#3c3c3c}
+  .menu a em{color:var(--acc-deep)}
+  .menu a:hover{color:var(--acc-deep)}
+}
+
+/* --- hero tablet: nama lebih besar, foto sedikit ramping --- */
+@media(min-width:768px) and (max-width:1023px){
+  .hero-name{font-size:88px}
+  .portrait .kb{width:72%}
+}
+
+/* --- hero desktop: teks kiri, foto kanan --- */
+@media(min-width:1024px){
+  .hero{display:grid;grid-template-columns:1.02fr .98fr;align-items:center;gap:24px;padding:64px 56px 72px}
+  .hero-pad{padding:0}
+  .hero-name{font-size:clamp(76px,7.4vw,118px)}
+  .hero-meta{margin-top:20px}
+  .portrait{margin:0;border-radius:10px}
+}
+
+/* --- napas lega di tiap section saat desktop --- */
+@media(min-width:1024px){
+  .dark{padding:88px 64px}
+  .work{padding:88px 64px 72px}
+  .edu{padding:24px 64px 88px}
+  .proj{padding:24px 64px 88px}
+  .certs{padding:88px 64px}
+  .contact{padding:88px 64px 72px}
+  .foot{padding:72px 64px 56px}
+  .h-display{font-size:64px}
+  .contact .h-display{font-size:58px}
+  .foot .h-display{font-size:54px}
+  .dark p.lead.cv{max-width:68ch}
+  .skill-tabs{max-width:620px}
+}
+
+/* --- timeline: kolom tunggal rapi di tengah saat desktop --- */
+@media(min-width:1024px){
+  .tl-items{max-width:760px;margin-left:auto;margin-right:auto}
+}
+
+/* --- statistik: 4 kolom sejajar di desktop --- */
+@media(min-width:1024px){
+  .stats{grid-template-columns:repeat(4,1fr)}
+}
+
+/* --- kartu edukasi: batasi lebar baca di desktop --- */
+@media(min-width:1024px){
+  .edu-card{max-width:800px;margin-left:auto;margin-right:auto}
+}
+
+/* --- proyek & sertifikat: grid 2 kolom mulai tablet --- */
+@media(min-width:768px){
+  .proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start;margin-top:8px}
+  .proj-grid .proj-card{margin-top:14px}
+  .cert-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start;margin-top:8px}
+  .cert-grid .cert-card{margin-top:16px}
+}
+
+/* --- kontak desktop: daftar kiri, dossier kanan --- */
+@media(min-width:1024px){
+  .contact-cols{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;margin-top:32px}
+  .contact-cols .c-list{margin-top:0}
+  .contact-cols .cv-dossier{margin-top:0}
+}
+
+/* --- footer: tautan sejajar di layar lebar --- */
+@media(min-width:768px){
+  .foot-links a{display:inline-block;border-bottom:0;padding:11px 22px 11px 0}
+  .foot::after{font-size:220px}
+}
+</style>
 <script>
 // ---------- Huruf kinetik: pecah per KATA (tidak kepotong tengah kata), lalu per huruf ----------
 (function(){
